@@ -1,3 +1,3 @@
 export default eventHandler(async () => {
-  return hubBlob().list()
-})
+  return hubBlob().list();
+});
