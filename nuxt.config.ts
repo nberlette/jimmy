@@ -1,34 +1,33 @@
+import { defineNuxtConfig } from "nuxt/config";
+
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   modules: [
-    '@nuxthub/core',
-    '@nuxt/fonts',
-    '@nuxt/ui',
-    '@nuxt/eslint',
-    '@vueuse/nuxt',
-    'nuxt-auth-utils'
+    "@nuxthub/core",
+    "@nuxt/fonts",
+    "@nuxt/ui",
+    "@nuxt/eslint",
+    "@vueuse/nuxt",
+    "nuxt-auth-utils",
   ],
-
   hub: {
-    blob: true
+    kv: true,
+    blob: true,
+    database: true,
   },
-
   ui: {
-    icons: ['simple-icons']
+    icons: ["simple-icons", "logos", "tabler"],
   },
-
   experimental: {
-    viewTransition: true
+    viewTransition: true,
   },
-
-  devtools: { enabled: true },
-
+  devtools: { enabled: process.env.NODE_ENV === "development" },
   eslint: {
     config: {
       stylistic: {
-        quotes: 'single',
-        commaDangle: 'never'
-      }
-    }
-  }
-})
+        quotes: "single",
+        commaDangle: "never",
+      },
+    },
+  },
+});
